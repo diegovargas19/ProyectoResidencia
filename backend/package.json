@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Residencia",
+  "license": "ISC",
+  "author": "Diego Alejandro Vargas Gonzalez",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "db:cleanup-indexes": "node scripts/cleanupDuplicateIndexes.js",
+    "db:update-role-enums": "node scripts/updateRoleEnums.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "moment-timezone": "^0.6.0",
+    "multer": "^2.1.1",
+    "mysql2": "^3.18.2",
+    "nodemailer": "^9.0.1",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.3",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.1"
+  }
+}

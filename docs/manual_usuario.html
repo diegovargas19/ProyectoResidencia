@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Manual de Usuario - Sistema de Gestion de Proyectos Academicos</title>
+    <style>
+      @page {
+        size: Letter;
+        margin: 18mm 16mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #172033;
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11pt;
+        line-height: 1.55;
+      }
+
+      main {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #0b162c;
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        padding-top: 12px;
+        font-size: 28pt;
+      }
+
+      h2 {
+        margin: 30px 0 10px;
+        padding-top: 8px;
+        border-top: 2px solid #e5e7eb;
+        font-size: 17pt;
+        break-after: avoid;
+      }
+
+      h3 {
+        margin: 20px 0 8px;
+        font-size: 13pt;
+        break-after: avoid;
+      }
+
+      p {
+        margin: 7px 0;
+      }
+
+      ul {
+        margin: 8px 0 14px;
+        padding-left: 20px;
+      }
+
+      li {
+        margin: 4px 0;
+      }
+
+      hr {
+        margin: 24px 0;
+        border: 0;
+        border-top: 1px solid #d9dee8;
+      }
+
+      .step {
+        display: flex;
+        gap: 10px;
+        margin: 6px 0;
+      }
+
+      .step span {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        flex: 0 0 22px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #991b1b;
+        color: white;
+        font-size: 9pt;
+        font-weight: 700;
+      }
+
+      strong {
+        color: #0b162c;
+      }
+
+      h1:first-of-type {
+        margin-top: 70px;
+        padding: 40px 0 0;
+        border-top: 8px solid #991b1b;
+      }
+
+      h1:first-of-type + h2 {
+        border-top: 0;
+      }
+
+      @media print {
+        body {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+
+        h2 {
+          break-inside: avoid;
+        }
+
+        ul,
+        p {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Manual de Usuario</h1>
+<h2>Sistema de Gestion de Proyectos Academicos</h2>
+<p>Instituto Tecnologico Superior de Jerez</p>
+<p>Version del manual: 1.0</p>
+<hr />
+<h2>Indice</h2>
+<p class="step"><span>1</span>Introduccion</p>
+<p class="step"><span>2</span>Roles de usuario</p>
+<p class="step"><span>3</span>Inicio de sesion</p>
+<p class="step"><span>4</span>Navegacion general</p>
+<p class="step"><span>5</span>Proyectos y Mis proyectos</p>
+<p class="step"><span>6</span>Detalle de proyecto</p>
+<p class="step"><span>7</span>Investigadores y colaboradores</p>
+<p class="step"><span>8</span>Archivos del proyecto</p>
+<p class="step"><span>9</span>Encuestas</p>
+<p class="step"><span>10</span>Responder encuestas</p>
+<p class="step"><span>11</span>Resultados de encuesta</p>
+<p class="step"><span>12</span>Dashboard general</p>
+<p class="step"><span>13</span>Reportes</p>
+<p class="step"><span>14</span>Administracion</p>
+<p class="step"><span>15</span>Recomendaciones de uso</p>
+<p class="step"><span>16</span>Preguntas frecuentes</p>
+<hr />
+<h2>1. Introduccion</h2>
+<p>El Sistema de Gestion de Proyectos Academicos permite administrar proyectos de investigacion, equipos de trabajo, archivos de evidencia, encuestas, resultados y reportes institucionales desde una plataforma centralizada.</p>
+<p>El objetivo del sistema es facilitar el seguimiento de proyectos academicos, organizar la participacion de investigadores y colaboradores, conservar documentos relacionados con cada investigacion y generar informacion util para la toma de decisiones.</p>
+<p>Este manual esta dirigido a usuarios finales. No requiere conocimientos de programacion.</p>
+<hr />
+<h2>2. Roles de usuario</h2>
+<p>El sistema trabaja con distintos roles. Cada rol tiene permisos diferentes.</p>
+<h3>Administrador</h3>
+<p>El administrador tiene acceso completo al sistema. Puede:</p>
+<ul>
+<li>Crear, editar y eliminar proyectos.</li>
+<li>Asignar uno o varios investigadores a un proyecto.</li>
+<li>Asignar cualquier cantidad de colaboradores a un proyecto.</li>
+<li>Crear usuarios.</li>
+<li>Editar usuarios y roles.</li>
+<li>Administrar encuestas.</li>
+<li>Consultar dashboard, resultados y reportes.</li>
+<li>Descargar reportes.</li>
+<li>Eliminar archivos cuando sea necesario.</li>
+</ul>
+<h3>Investigador</h3>
+<p>El investigador participa en proyectos asignados. Puede:</p>
+<ul>
+<li>Ver sus proyectos asignados.</li>
+<li>Consultar el detalle de cada proyecto.</li>
+<li>Subir archivos y evidencias a sus proyectos.</li>
+<li>Crear colaboradores.</li>
+<li>Asignar hasta 3 colaboradores a los proyectos donde participa.</li>
+<li>Consultar encuestas, dashboard y reportes si la navegacion de su perfil lo permite.</li>
+</ul>
+<h3>Colaborador</h3>
+<p>El colaborador apoya el trabajo de investigacion en proyectos especificos. Puede:</p>
+<ul>
+<li>Ver la seccion Mis proyectos.</li>
+<li>Entrar solo a los proyectos a los que fue asignado.</li>
+<li>Subir archivos y evidencias en esos proyectos.</li>
+<li>Ver y descargar archivos de sus proyectos asignados.</li>
+</ul>
+<p>El colaborador no puede ver proyectos donde no participa.</p>
+<h3>Visor</h3>
+<p>El visor es un rol de consulta basica. Su acceso depende de la configuracion interna del sistema. Normalmente se utiliza para usuarios que requieren revisar informacion sin modificarla.</p>
+<hr />
+<h2>3. Inicio de sesion</h2>
+<p>Para entrar al sistema:</p>
+<p class="step"><span>1</span>Abra la pagina del sistema.</p>
+<p class="step"><span>2</span>Escriba su correo electronico.</p>
+<p class="step"><span>3</span>Escriba su contrasena.</p>
+<p class="step"><span>4</span>Presione el boton para iniciar sesion.</p>
+<p>Si los datos son correctos, el sistema mostrara la pantalla principal.</p>
+<p>Si aparece un mensaje de error:</p>
+<ul>
+<li>Revise que el correo este escrito correctamente.</li>
+<li>Verifique que la contrasena sea la correcta.</li>
+<li>Si el problema continua, solicite apoyo al administrador.</li>
+</ul>
+<hr />
+<h2>4. Navegacion general</h2>
+<p>Despues de iniciar sesion, el sistema muestra una barra de navegacion superior.</p>
+<p>Las opciones pueden variar segun el rol del usuario:</p>
+<ul>
+<li>Proyectos o Mis proyectos.</li>
+<li>Encuestas.</li>
+<li>Dashboard.</li>
+<li>Reportes.</li>
+<li>Administracion.</li>
+<li>Cerrar sesion.</li>
+</ul>
+<p>En dispositivos pequenos, las opciones pueden aparecer dentro de un menu desplegable.</p>
+<p>Para salir del sistema, use la opcion Cerrar sesion.</p>
+<hr />
+<h2>5. Proyectos y Mis proyectos</h2>
+<p>La seccion Proyectos o Mis proyectos es la pantalla principal del sistema.</p>
+<h3>Para administradores</h3>
+<p>El administrador ve la seccion Proyectos. Desde ahi puede consultar todos los proyectos registrados.</p>
+<p>Puede:</p>
+<ul>
+<li>Buscar proyectos por nombre, estado, prioridad, departamento, investigador o colaborador.</li>
+<li>Crear un nuevo proyecto.</li>
+<li>Editar un proyecto existente.</li>
+<li>Eliminar un proyecto.</li>
+<li>Entrar al detalle de un proyecto.</li>
+</ul>
+<h3>Para investigadores y colaboradores</h3>
+<p>Los usuarios asignados a proyectos ven la seccion Mis proyectos.</p>
+<p>Esta vista muestra unicamente los proyectos donde el usuario participa como investigador o colaborador.</p>
+<h3>Tabla de proyectos</h3>
+<p>La tabla muestra informacion como:</p>
+<ul>
+<li>Nombre del proyecto.</li>
+<li>Investigadores asignados.</li>
+<li>Colaboradores asignados.</li>
+<li>Departamento.</li>
+<li>Estado.</li>
+<li>Prioridad.</li>
+<li>Fecha limite.</li>
+<li>Acciones disponibles.</li>
+</ul>
+<p>La tabla cuenta con paginacion para mantener la pantalla ordenada cuando existen muchos proyectos.</p>
+<hr />
+<h2>6. Crear o editar un proyecto</h2>
+<p>Esta funcion esta disponible para administradores.</p>
+<p>Para crear un proyecto:</p>
+<p class="step"><span>1</span>Entre a Proyectos.</p>
+<p class="step"><span>2</span>Presione Nuevo proyecto.</p>
+<p class="step"><span>3</span>Capture el titulo del proyecto.</p>
+<p class="step"><span>4</span>Seleccione uno o varios investigadores.</p>
+<p class="step"><span>5</span>Seleccione el departamento.</p>
+<p class="step"><span>6</span>Seleccione colaboradores si aplica.</p>
+<p class="step"><span>7</span>Defina el estado.</p>
+<p class="step"><span>8</span>Defina la prioridad.</p>
+<p class="step"><span>9</span>Seleccione la fecha limite.</p>
+<p class="step"><span>10</span>Presione Guardar proyecto.</p>
+<p>Para editar un proyecto:</p>
+<p class="step"><span>1</span>Entre a Proyectos.</p>
+<p class="step"><span>2</span>Busque el proyecto.</p>
+<p class="step"><span>3</span>Presione el boton de editar.</p>
+<p class="step"><span>4</span>Modifique la informacion necesaria.</p>
+<p class="step"><span>5</span>Guarde los cambios.</p>
+<p>Notas importantes:</p>
+<ul>
+<li>El administrador puede asignar varios investigadores.</li>
+<li>El administrador puede asignar cualquier cantidad de colaboradores.</li>
+<li>El primer investigador seleccionado se toma como responsable principal para compatibilidad con vistas anteriores.</li>
+</ul>
+<hr />
+<h2>7. Detalle de proyecto</h2>
+<p>Al entrar a un proyecto se muestra una pantalla con dos zonas principales:</p>
+<ul>
+<li>Informacion general del proyecto.</li>
+<li>Historial de investigacion.</li>
+</ul>
+<h3>Informacion general</h3>
+<p>Incluye:</p>
+<ul>
+<li>Investigadores asignados.</li>
+<li>Colaboradores asignados.</li>
+<li>Departamento.</li>
+<li>Fecha limite.</li>
+<li>Estado.</li>
+<li>Prioridad.</li>
+<li>Total de archivos subidos.</li>
+</ul>
+<h3>Gestion de colaboradores</h3>
+<p>El administrador puede agregar o quitar colaboradores sin limite.</p>
+<p>El investigador puede agregar o quitar colaboradores, con un maximo de 3 colaboradores por proyecto.</p>
+<p>El colaborador solo puede consultar la informacion del proyecto y subir evidencia si esta asignado.</p>
+<hr />
+<h2>8. Archivos del proyecto</h2>
+<p>La seccion Historial de Investigacion permite subir y consultar archivos relacionados con el proyecto.</p>
+<h3>Subir archivos</h3>
+<p>Para subir archivos:</p>
+<p class="step"><span>1</span>Entre al detalle del proyecto.</p>
+<p class="step"><span>2</span>Presione Subir archivo.</p>
+<p class="step"><span>3</span>Seleccione uno o varios archivos desde su equipo.</p>
+<p class="step"><span>4</span>Espere el mensaje de confirmacion.</p>
+<p>Pueden subir archivos:</p>
+<ul>
+<li>Administradores.</li>
+<li>Investigadores asignados.</li>
+<li>Colaboradores asignados.</li>
+</ul>
+<p>No se pueden subir archivos si la fecha limite del proyecto ya vencio.</p>
+<h3>Ver archivos</h3>
+<p>Para abrir un archivo:</p>
+<p class="step"><span>1</span>Localice el archivo en el historial.</p>
+<p class="step"><span>2</span>Presione Ver.</p>
+<h3>Descargar archivos</h3>
+<p>Para descargar un archivo:</p>
+<p class="step"><span>1</span>Localice el archivo.</p>
+<p class="step"><span>2</span>Presione Descargar.</p>
+<p>El sistema valida que el usuario tenga acceso al proyecto antes de permitir ver o descargar archivos.</p>
+<h3>Eliminar archivos</h3>
+<p>La eliminacion de archivos esta reservada para administradores.</p>
+<hr />
+<h2>9. Encuestas</h2>
+<p>La seccion Encuestas permite administrar instrumentos de recoleccion de informacion.</p>
+<p>Desde esta seccion se puede:</p>
+<ul>
+<li>Ver encuestas existentes.</li>
+<li>Crear nuevas encuestas.</li>
+<li>Editar preguntas.</li>
+<li>Configurar fechas de inicio y fin.</li>
+<li>Activar o cerrar encuestas.</li>
+<li>Consultar resultados, segun permisos.</li>
+</ul>
+<p>Las encuestas pueden asociarse a proyectos para recopilar informacion relacionada con una investigacion.</p>
+<hr />
+<h2>10. Construccion de encuestas</h2>
+<p>El constructor de encuestas permite definir las preguntas que responderan los participantes.</p>
+<p>Una encuesta puede contener diferentes tipos de preguntas, como:</p>
+<ul>
+<li>Preguntas abiertas.</li>
+<li>Preguntas de opcion.</li>
+<li>Preguntas con varias respuestas.</li>
+</ul>
+<p>Recomendaciones:</p>
+<ul>
+<li>Use preguntas claras y concretas.</li>
+<li>Evite textos demasiado largos.</li>
+<li>Revise la ortografia antes de publicar.</li>
+<li>Verifique que las fechas de inicio y fin sean correctas.</li>
+</ul>
+<hr />
+<h2>11. Responder encuestas</h2>
+<p>Cuando un usuario responde una encuesta:</p>
+<p class="step"><span>1</span>Abre la encuesta desde el sistema o desde un enlace.</p>
+<p class="step"><span>2</span>Completa las preguntas requeridas.</p>
+<p class="step"><span>3</span>Envia sus respuestas.</p>
+<p class="step"><span>4</span>El sistema guarda la participacion.</p>
+<p>Algunas encuestas pueden responderse por medio de enlace externo. En ese caso, el participante no necesita entrar al panel principal del sistema.</p>
+<hr />
+<h2>12. Resultados de encuesta</h2>
+<p>La seccion Resultados de encuesta permite consultar:</p>
+<ul>
+<li>Total de participantes.</li>
+<li>Total de respuestas.</li>
+<li>Ultima respuesta recibida.</li>
+<li>Respuestas mas comunes.</li>
+<li>Lista de participantes.</li>
+<li>Detalle individual de respuestas.</li>
+</ul>
+<p>La pantalla incluye busqueda y paginacion para revisar participantes de forma ordenada.</p>
+<p>Esta seccion esta pensada principalmente para administradores o usuarios autorizados.</p>
+<hr />
+<h2>13. Dashboard general</h2>
+<p>El Dashboard general presenta una vista ejecutiva del sistema.</p>
+<p>Puede incluir indicadores como:</p>
+<ul>
+<li>Total de proyectos.</li>
+<li>Total de encuestas.</li>
+<li>Total de respuestas.</li>
+<li>Investigadores registrados.</li>
+<li>Proyectos por estado.</li>
+<li>Proyectos por prioridad.</li>
+<li>Actividad reciente.</li>
+<li>Alertas administrativas.</li>
+</ul>
+<p>El dashboard ayuda a revisar rapidamente el estado general de la plataforma.</p>
+<hr />
+<h2>14. Reportes</h2>
+<p>La seccion Reportes permite consultar informacion consolidada sobre proyectos, encuestas, participacion y respuestas.</p>
+<h3>Filtro por proyecto</h3>
+<p>El usuario puede seleccionar:</p>
+<ul>
+<li>Todos los proyectos.</li>
+<li>Un proyecto especifico.</li>
+</ul>
+<p>Al cambiar el filtro, las metricas y graficas se actualizan.</p>
+<h3>Indicadores principales</h3>
+<p>La parte superior muestra datos como:</p>
+<ul>
+<li>Encuestas.</li>
+<li>Preguntas.</li>
+<li>Participaciones.</li>
+<li>Promedio por encuesta.</li>
+</ul>
+<h3>Respuestas por encuesta</h3>
+<p>Muestra una grafica comparativa de participacion entre encuestas.</p>
+<h3>Participacion temporal</h3>
+<p>Muestra como han llegado las respuestas a lo largo del tiempo.</p>
+<h3>Respuestas mas comunes</h3>
+<p>Resume las respuestas mas frecuentes por pregunta.</p>
+<p>Esta seccion cuenta con paginacion para evitar que la pantalla crezca demasiado cuando existen muchas preguntas.</p>
+<h3>Participantes recientes</h3>
+<p>Lista los participantes mas recientes registrados en las encuestas.</p>
+<p>Tambien cuenta con paginacion para mantener el panel compacto.</p>
+<h3>Preguntas, respuestas y graficas</h3>
+<p>Muestra el desglose detallado de preguntas, respuestas y graficas.</p>
+<p>Esta seccion tambien cuenta con paginacion para facilitar la consulta.</p>
+<h3>Descargar PDF</h3>
+<p>El boton Descargar PDF genera un reporte imprimible con informacion ejecutiva.</p>
+<hr />
+<h2>15. Administracion</h2>
+<p>La seccion Administracion esta disponible para usuarios administradores.</p>
+<p>Permite gestionar:</p>
+<ul>
+<li>Usuarios.</li>
+<li>Roles.</li>
+<li>Permisos generales.</li>
+</ul>
+<h3>Crear usuario</h3>
+<p>Para crear un usuario:</p>
+<p class="step"><span>1</span>Entre a Administracion.</p>
+<p class="step"><span>2</span>Presione Nuevo usuario.</p>
+<p class="step"><span>3</span>Capture nombre, apellidos, correo y contrasena.</p>
+<p class="step"><span>4</span>Seleccione el rol.</p>
+<p class="step"><span>5</span>Guarde el usuario.</p>
+<p>Roles disponibles:</p>
+<ul>
+<li>Administrador.</li>
+<li>Investigador.</li>
+<li>Colaborador.</li>
+<li>Visor.</li>
+</ul>
+<h3>Editar usuario</h3>
+<p>Permite actualizar informacion del usuario y cambiar su rol.</p>
+<h3>Eliminar usuario</h3>
+<p>Permite eliminar un usuario del sistema cuando ya no debe tener acceso.</p>
+<hr />
+<h2>16. Recomendaciones de uso</h2>
+<ul>
+<li>Cierre sesion cuando termine de usar el sistema.</li>
+<li>Revise cuidadosamente las fechas limite de los proyectos.</li>
+<li>Asigne investigadores y colaboradores correctos desde el inicio.</li>
+<li>No comparta su contrasena.</li>
+<li>Use nombres claros para los archivos que suba.</li>
+<li>Mantenga actualizados los estados de los proyectos.</li>
+<li>Revise los reportes periodicamente.</li>
+<li>Antes de eliminar informacion, confirme que no sera necesaria.</li>
+</ul>
+<hr />
+<h2>17. Preguntas frecuentes</h2>
+<h3>No veo todos los proyectos</h3>
+<p>Esto depende de su rol. Los colaboradores e investigadores solo ven proyectos donde participan. El administrador ve todos.</p>
+<h3>No puedo subir archivos</h3>
+<p>Puede deberse a una de estas razones:</p>
+<ul>
+<li>No esta asignado al proyecto.</li>
+<li>La fecha limite ya vencio.</li>
+<li>Su rol no tiene permisos para subir archivos.</li>
+</ul>
+<h3>No puedo agregar mas colaboradores</h3>
+<p>Si es investigador, el limite es de 3 colaboradores por proyecto.</p>
+<p>Si es administrador, no tiene limite.</p>
+<h3>No aparece la seccion Administracion</h3>
+<p>La seccion Administracion solo esta disponible para administradores.</p>
+<h3>No puedo ver encuestas, dashboard o reportes</h3>
+<p>Algunos roles tienen navegacion limitada. Los colaboradores normalmente solo ven Mis proyectos.</p>
+<h3>Un colaborador no ve un proyecto</h3>
+<p>Verifique que el colaborador haya sido asignado al proyecto.</p>
+<h3>Un investigador no puede gestionar colaboradores</h3>
+<p>Verifique que el investigador este asignado al proyecto.</p>
+<hr />
+<h2>18. Glosario</h2>
+<h3>Proyecto</h3>
+<p>Registro principal de una investigacion academica.</p>
+<h3>Investigador</h3>
+<p>Usuario responsable o participante en la investigacion.</p>
+<h3>Colaborador</h3>
+<p>Usuario que apoya un proyecto especifico y puede subir evidencia.</p>
+<h3>Evidencia</h3>
+<p>Archivo relacionado con el avance o resultado del proyecto.</p>
+<h3>Encuesta</h3>
+<p>Instrumento para recopilar informacion de participantes.</p>
+<h3>Reporte</h3>
+<p>Resumen ejecutivo de informacion del sistema.</p>
+<hr />
+<h2>19. Cierre</h2>
+<p>Este manual resume el uso general del Sistema de Gestion de Proyectos Academicos. Si alguna pantalla cambia o se agregan nuevas funciones, el manual debe actualizarse para conservarlo alineado con el sistema.</p>
+    </main>
+  </body>
+</html>

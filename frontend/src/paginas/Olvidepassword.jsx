@@ -1,0 +1,89 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+const OlvidePassword = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (email.trim() === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campo Obligatorio',
+        text: 'Por favor, escribe tu correo electrónico',
+        background: '#0b162c',
+        color: '#fff',
+        confirmButtonColor: '#b91c1c'
+      });
+      return;
+    }
+
+    try {
+      // Usamos el endpoint público que creamos en tus rutas
+      const { data } = await axios.post('http://localhost:4000/api/usuarios/olvide-password', { email });
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Solicitud Enviada',
+        text: data.msg,
+        background: '#0b162c',
+        color: '#fff',
+        confirmButtonColor: '#10b981'
+      });
+      setEmail('');
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error.response?.data?.msg || 'No se pudo procesar la solicitud',
+        background: '#0b162c',
+        color: '#fff',
+        confirmButtonColor: '#b91c1c'
+      });
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-[#070f1e] p-4">
+      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[#0b162c] p-8 shadow-2xl">
+        <h2 className="text-3xl font-bold text-white text-center mb-2">Recuperar Acceso</h2>
+        <p className="text-gray-400 text-sm text-center mb-6">
+          Se enviará una alerta interna al Administrador del sistema para que restablezca tu contraseña.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block text-xs text-white/70 mb-2 tracking-wide font-medium">
+              Correo Electrónico
+            </label>
+            <input
+              type="email"
+              placeholder="correo@ejemplo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full rounded-xl border border-white/10 bg-[#091224] px-4 py-3.5 text-white outline-none focus:border-red-500/40 transition"
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            className="w-full rounded-xl bg-red-700 py-3.5 font-medium text-white transition hover:bg-red-600 shadow-lg shadow-red-900/20"
+          >
+            Enviar Notificación
+          </button>
+        </form>
+
+        <div className="mt-6 text-center">
+          <Link to="/" className="text-sm text-gray-400 hover:text-white transition">
+            ← Regresar al Inicio de Sesión
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default OlvidePassword;
