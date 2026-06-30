@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, '.env') });
 
 // 2. IMPORTACIONES DE RUTAS (Apuntando exactamente a tu archivo ususarioRoutes.js)
-import usuarioRoutes from './routes/ususarioRoutes.js'; 
+import usuarioRoutes from './routes/usuarioRoutes.js';
 import proyectosRoutes from './routes/proyectosRoutes.js';
 import archivosRoutes from './routes/archivosRoutes.js';
 import encuestasRoutes from './routes/encuestasRoutes.js';

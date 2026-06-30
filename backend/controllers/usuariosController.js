@@ -361,12 +361,18 @@ export const eliminarUsuarioPermanente = async (req, res) => {
 export const solicitarRecuperacion = async (req, res) => {
   try {
     const { email } = req.body;
+    const mensajeRespuesta = 'Si el correo existe, recibiras instrucciones para restablecer tu contrasena.';
+
+    if (!email) {
+      return res.status(400).json({
+        msg: 'El email es obligatorio',
+      });
+    }
+
     const usuario = await Usuarios.findOne({ where: { email } });
 
     if (!usuario) {
-      return res.status(404).json({
-        msg: 'El correo ingresado no coincide con ninguna cuenta activa.',
-      });
+      return res.json({ msg: mensajeRespuesta });
     }
 
     // Generamos un token aleatorio seguro y una expiración de 1 hora
@@ -375,7 +381,7 @@ export const solicitarRecuperacion = async (req, res) => {
 
     await usuario.update({
       token_password: tokenSeguro,
-      token_expiracion: tiempoExpiracion
+      token_expiracion: tiempoExpiracion,
     });
 
     // Despachamos el correo usando el helper
@@ -385,9 +391,7 @@ export const solicitarRecuperacion = async (req, res) => {
       token: tokenSeguro,
     });
 
-    res.json({
-      msg: 'Hemos enviado un correo electrónico con las instrucciones para restablecer tu contraseña.',
-    });
+    res.json({ msg: mensajeRespuesta });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -405,7 +409,7 @@ export const comprobarTokenPassword = async (req, res) => {
 
     const usuario = await Usuarios.findOne({ where: { token_password: token } });
 
-    if (!usuario) {
+    if (!usuario || !usuario.token_expiracion) {
       return res.status(404).json({ msg: 'El enlace de recuperación no es válido.' });
     }
 
@@ -429,9 +433,13 @@ export const nuevoPassword = async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
 
+    if (!password || password.length < 6) {
+      return res.status(400).json({ msg: 'La contrasena debe tener al menos 6 caracteres.' });
+    }
+
     const usuario = await Usuarios.findOne({ where: { token_password: token } });
 
-    if (!usuario) {
+    if (!usuario || !usuario.token_expiracion) {
       return res.status(404).json({ msg: 'Operación no válida.' });
     }
 
@@ -490,3 +498,4 @@ export const adminGenerarPassword = async (req, res) => {
     });
   }
 };
+

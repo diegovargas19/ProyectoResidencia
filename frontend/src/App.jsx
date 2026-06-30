@@ -13,7 +13,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 
 import Login from './paginas/Login';
-import OlvidePassword from './paginas/OlvidePassword'; 
+import OlvidePassword from './paginas/Olvidepassword';
+import NuevoPassword from './paginas/NuevoPassword';
 
 import Proyectos from './paginas/Proyectos';
 import Proyecto from './paginas/Proyecto';
@@ -41,6 +42,7 @@ function App() {
                   <Route element={<AuthLayout />}>
                     <Route path="/" element={<Login />} />
                     <Route path="/olvide-password" element={<OlvidePassword />} />
+                    <Route path="/nuevo-password/:token" element={<NuevoPassword />} />
                   </Route>
 
                   {/* 🔗 RUTA PÚBLICA PARA RESPONDER CON TOKEN MASIVO */}
